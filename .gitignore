@@ -1,0 +1,250 @@
+# Expense Tracker .gitignore
+
+# ============================================
+# Backend (Java/Maven)
+# ============================================
+
+# Compiled class files
+backend/target/
+backend/*.class
+backend/*.jar
+backend/*.war
+backend/*.ear
+
+# Maven
+backend/.mvn/
+backend/mvnw
+backend/mvnw.cmd
+
+# IntelliJ IDEA
+backend/.idea/
+backend/*.iml
+backend/*.iws
+backend/*.ipr
+backend/out/
+
+# Eclipse
+backend/.classpath
+backend/.project
+backend/.settings/
+backend/bin/
+
+# VS Code
+backend/.vscode/
+
+# Spring Boot
+backend/spring.log
+backend/*.log
+
+# Application properties with secrets
+backend/src/main/resources/application-prod.yml
+backend/src/main/resources/application-local.yml
+
+# ============================================
+# Frontend (React/Node)
+# ============================================
+
+# Dependencies
+frontend/node_modules/
+frontend/.pnp
+frontend/.pnp.js
+
+# Testing
+frontend/coverage/
+frontend/.nyc_output/
+
+# Production build
+frontend/dist/
+frontend/build/
+
+# Environment variables
+frontend/.env
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# Logs
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/pnpm-debug.log*
+frontend/lerna-debug.log*
+
+# Editor directories and files
+frontend/.vscode/
+frontend/.idea/
+frontend/.DS_Store
+frontend/*.suo
+frontend/*.ntvs*
+frontend/*.njsproj
+frontend/*.sln
+frontend/*.sw?
+
+# Vite
+frontend/.vite/
+
+# TypeScript
+frontend/*.tsbuildinfo
+
+# ============================================
+# Database
+# ============================================
+
+# PostgreSQL data
+postgres_data/
+*.sql.gz
+*.dump
+
+# Docker volumes
+docker-data/
+
+# ============================================
+# Docker
+# ============================================
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+
+# ============================================
+# OS Files
+# ============================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+
+# ============================================
+# IDEs
+# ============================================
+
+# JetBrains
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# ============================================
+# Logs and PIDs
+# ============================================
+
+*.log
+*.pid
+backend/backend.log
+backend/backend.pid
+frontend/frontend.log
+frontend/frontend.pid
+
+# ============================================
+# Temporary files
+# ============================================
+
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+*.bak
+*.cache
+
+# ============================================
+# Build artifacts
+# ============================================
+
+dist/
+build/
+target/
+
+# ============================================
+# Security & Credentials
+# ============================================
+
+# Secrets and credentials
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.jks
+secrets/
+credentials/
+
+# JWT secrets
+jwt-secret.txt
+
+# ============================================
+# Testing
+# ============================================
+
+# Test results
+test-results/
+junit/
+coverage/
+.nyc_output/
+
+# ============================================
+# Documentation (generated)
+# ============================================
+
+# Generated docs
+docs/generated/
+docs/api/generated/
+
+# ============================================
+# Miscellaneous
+# ============================================
+
+# Package files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Backup files
+*.backup
+*.old
+*.orig
+
+# ============================================
+# Project-specific
+# ============================================
+
+# Uploads
+uploads/
+receipts/
+attachments/
+
+# Reports
+reports/
+exports/
+
+# Keep these
+!backend/src/main/resources/.gitkeep
+!frontend/public/.gitkeep
