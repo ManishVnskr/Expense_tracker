@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import type { User, LoginRequest, RegisterRequest } from '../types';
 import { auth as authApi } from '../api';
 
@@ -29,7 +29,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const register = async (data: RegisterRequest) => {
-    const user = await authApi.register(data);
+    await authApi.register(data);
     // Auto-login after registration
     await login({ email: data.email, password: data.password });
   };

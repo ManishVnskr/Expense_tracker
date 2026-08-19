@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useAuth } from '../contexts/AuthContext';
 import { transactions, categories } from '../api';
-import type { Transaction, TransactionRequest, Category } from '../types';
+import type { Transaction, Category } from '../types';
 import TransactionForm from '../components/TransactionForm';
 
 const TransactionsPage = () => {
@@ -94,7 +94,7 @@ const TransactionsPage = () => {
 
   const getCategoryName = (categoryId: number | undefined) => {
     if (!categoryId) return 'Uncategorized';
-    return categoriesData?.find(c => c.id === categoryId)?.name || 'Unknown';
+    return categoriesData?.find((c: Category) => c.id === categoryId)?.name || 'Unknown';
   };
 
   if (isLoading && !data) {
@@ -155,7 +155,7 @@ const TransactionsPage = () => {
             className="px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           >
             <option value="">All Categories</option>
-            {categoriesData?.map(cat => (
+            {categoriesData?.map((cat: Category) => (
               <option key={cat.id} value={cat.id}>{cat.name}</option>
             ))}
           </select>

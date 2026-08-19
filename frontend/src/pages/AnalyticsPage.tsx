@@ -143,7 +143,7 @@ const AnalyticsPage = () => {
                   tickFormatter={(value) => `$${value}`}
                 />
                 <Tooltip
-                  formatter={(value: number) => `$${value.toFixed(2)}`}
+                  formatter={(value) => `$${Number(value).toFixed(2)}`}
                 />
                 <Legend />
                 <Line
@@ -200,7 +200,7 @@ const AnalyticsPage = () => {
                   width={90}
                 />
                 <Tooltip
-                  formatter={(value: number) => `$${value.toFixed(2)}`}
+                  formatter={(value) => `$${Number(value).toFixed(2)}`}
                 />
                 <Bar
                   dataKey="amount"

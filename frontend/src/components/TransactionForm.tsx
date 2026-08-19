@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { transactions, categories } from '../api';
@@ -12,7 +11,7 @@ interface TransactionFormProps {
 
 const TransactionForm = ({ transaction, onClose, householdId }: TransactionFormProps) => {
   const queryClient = useQueryClient();
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<TransactionRequest>({
+  const { register, handleSubmit, formState: { errors } } = useForm<TransactionRequest>({
     defaultValues: transaction ? {
       amount: transaction.amount,
       type: transaction.type,

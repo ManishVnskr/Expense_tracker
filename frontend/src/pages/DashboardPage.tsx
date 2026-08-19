@@ -118,17 +118,17 @@ const DashboardPage = () => {
                     cx="50%"
                     cy="50%"
                     labelLine={false}
-                    label={({ percentage }) => `${percentage.toFixed(1)}%`}
+                    label={(props: any) => `${props.percent?.toFixed(1) || 0}%`}
                     outerRadius={100}
                     fill="#8884d8"
                     dataKey="value"
                   >
-                    {pieData.map((entry, index) => (
+                    {pieData.map((_entry, index) => (
                       <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                     ))}
                   </Pie>
                   <Tooltip
-                    formatter={(value: number) => `$${value.toFixed(2)}`}
+                    formatter={(value) => `$${Number(value).toFixed(2)}`}
                   />
                   <Legend />
                 </PieChart>
