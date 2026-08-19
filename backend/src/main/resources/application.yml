@@ -3,9 +3,9 @@ spring:
     name: expense-tracker
   
   datasource:
-    url: jdbc:postgresql://localhost:5432/expense_tracker
-    username: postgres
-    password: postgres
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/expense_tracker}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
     driver-class-name: org.postgresql.Driver
   
   jpa:
@@ -24,14 +24,14 @@ spring:
     locations: classpath:db/migration
 
 server:
-  port: 8080
+  port: ${PORT:8080}
   error:
     include-message: always
     include-binding-errors: always
 
 jwt:
-  secret: your-256-bit-secret-key-change-this-in-production-please-make-it-long-enough
-  expiration: 86400000  # 24 hours in milliseconds
+  secret: ${JWT_SECRET:your-256-bit-secret-key-change-this-in-production-please-make-it-long-enough}
+  expiration: ${JWT_EXPIRATION:86400000}  # 24 hours in milliseconds
 
 logging:
   level:
