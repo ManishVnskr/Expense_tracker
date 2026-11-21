@@ -216,14 +216,9 @@ Before you begin, ensure you have the following installed:
    
    Open your browser and navigate to: http://localhost:5173
 
-### Default Test Account
+### First Login
 
-A default test account is created on first run:
-
-```
-Email: john@example.com
-Password: Test1234!
-```
+No account is seeded. Open the app and register a new user.
 
 ## 📚 API Documentation
 
@@ -609,7 +604,30 @@ docker build -t expense-tracker-frontend .
 docker-compose -f docker-compose.prod.yml up -d
 ```
 
-### Deploy to Cloud
+### Deploy to Render (backend) + Netlify (frontend)
+
+1. **Database:** On Render, create a PostgreSQL instance. Note its host, database name, user and password.
+2. **Backend:** Create a Render Web Service from this repo with:
+   - Language: `Docker`
+   - Root Directory: `backend`
+   - Dockerfile Path: `./Dockerfile`
+   - Start Command: leave empty
+3. **Environment variables** on the web service:
+
+   | Key | Value |
+   |---|---|
+   | `DATABASE_URL` | `jdbc:postgresql://<host>:5432/<db>` (must start with `jdbc:`) |
+   | `DB_USERNAME` | database user |
+   | `DB_PASSWORD` | database password |
+   | `JWT_SECRET` | random string, 64+ characters (required in production) |
+   | `CORS_ALLOWED_ORIGINS` | `https://<your-site>.netlify.app` (no trailing slash) |
+
+   Flyway creates the tables on first start.
+4. **Frontend:** In Netlify, set `VITE_API_BASE_URL=https://<your-service>.onrender.com/api/v1`, then redeploy with "Clear cache and deploy site". Vite reads this value at build time.
+
+Free tier notes: the web service sleeps when idle, so the first request can take 30 to 50 seconds. The free Render PostgreSQL instance expires after about 30 days, so export a backup with `pg_dump` or move to another database before then.
+
+### Deploy to Cloud (other hosts)
 
 #### Backend (Railway, Heroku, AWS)
 1. Set environment variables

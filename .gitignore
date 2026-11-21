@@ -37,7 +37,6 @@ backend/spring.log
 backend/*.log
 
 # Application properties with secrets
-backend/src/main/resources/application-prod.yml
 backend/src/main/resources/application-local.yml
 
 # ============================================
@@ -104,7 +103,6 @@ docker-data/
 # ============================================
 
 # Docker
-.dockerignore
 docker-compose.override.yml
 
 # ============================================
